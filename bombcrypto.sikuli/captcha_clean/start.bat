@@ -1,1 +1,0 @@
-python C:\Users\wmnasc.MEUPC\Desktop\bombcrypto.sikuli\captcha_clean\solveCaptcha.py
