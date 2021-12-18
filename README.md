@@ -8,8 +8,8 @@
 **Editing**
 > * 1) Change the file **pass.txt** including MetaMask password base64 encoded. ex: *terminal# echo 'password' |base64*
 > * 2) Change **start-sikuli.bat** setting the path to sikuli.jar
-> * 3) Create a shortcut from puzzle/start.bat (it calls start.py)
-> * 4) Change the shortcut icon to **12252.ico**
+> * 3) Create a shortcut from shortcut/start.bat (this .bat must calls YOUR_PATH/captcha_clean/start.py)
+> * 4) Change the shortcut icon to **12252.ico** (added in /shortcut)
 > * 5) Fix shortcut at start bar
 
 **Using**
