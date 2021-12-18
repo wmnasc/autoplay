@@ -1,0 +1,1 @@
+java -jar C:\Users\wmnasc.MEUPC\Desktop\sikulixide-2.0.5-win.jar
