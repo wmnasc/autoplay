@@ -19,9 +19,7 @@ def connect():
     if exists ("1638061307171.png"):
         type(pw)
         click("1638061307171.png")
-        sleep(10)
-        click("1639624000323.png")
-        sleep(5)
+        sleep(15)
         click("1635776519047.png")
     else:     
         click("1635776519047.png")
