@@ -6,28 +6,47 @@ ciclo = 0
 ### IMPORT PASSWORD ###
 with open ('pass.txt','r') as f:
     metamask = f.read()
+  #  f.close()
     pw = base64.b64decode(metamask).decode('utf-8')
 
 def forceReload():
     keyDown(Key.CTRL + Key.F5)
 
+def simpleReload():
+    sleep(2)
+    type('r',Key.CTRL)
+
+def waitConnect():
+    sleep(10)
+    connectload = 0
+    while not exists ("1641697213577.png"):
+        sleep(5)
+        connectload += 1
+        if connectload > 12:
+            connectload = 0
+            sleep(random.randrange(1,600))
+            forceReload()
+
 def rload1():
     sleep(5)
-    click(Location(85, 59)) #Tela 1
-    sleep(10)
-    click(Location(457, 451)) #Connect Tela 1
+    click(Location(322, 201)) #Tela 1
+    simpleReload()
+    waitConnect()
+    click(Location(322, 347)) #Connect Tela 1
     
 def rload2():
     sleep(5)
-    click(Location(87, 576)) #Tela 2
-    sleep(10)
-    click(Location(460, 969)) #Connect Tela2
+    click(Location(318, 666)) #Tela 2
+    simpleReload()
+    waitConnect()
+    click(Location(329, 821)) #Connect Tela2
 
 def rload3():
     sleep(5)
-    click(Location(1060, 60)) #Tela 1
-    sleep(10)
-    click(Location(1440, 430)) #Connect Tela 1
+    click(Location(970, 194)) #Tela 3
+    simpleReload()
+    waitConnect()
+    click(Location(969, 352)) #Connect Tela 3
 
 def connect():
     sleep(10)
@@ -37,7 +56,9 @@ def connect():
         while not exists("1635776519047.png"):
             sleep(5)
         click("1635776519047.png")
-    else:     
+    else:
+        while not exists("1635776519047.png"):
+            sleep(5)
         click("1635776519047.png")
 
 def loadhero():
@@ -55,6 +76,8 @@ def loadhero():
                 rload2()
             elif ciclo == 3:
                 rload3()
+            else:
+                break
             connect()
     click("1641422420564.png")
     sleep(8)
