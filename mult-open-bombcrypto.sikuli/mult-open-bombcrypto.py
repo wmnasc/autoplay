@@ -1,13 +1,21 @@
 ### SCRIPT ###
 import random
 import base64
-ciclo = 0 
+ciclo = 0
+status = "waiting"
 
 ### IMPORT PASSWORD ###
 with open ('pass.txt','r') as f:
     metamask = f.read()
-  #  f.close()
+#    f.close()
     pw = base64.b64decode(metamask).decode('utf-8')
+
+### BOT STATUS ###
+def runbot():
+    global status
+    with open ('botStatus.txt','r') as a:
+        status = a.read()
+        a.close()
 
 def forceReload():
     keyDown(Key.CTRL + Key.F5)
@@ -107,12 +115,18 @@ def game3():
     
 while True:
     try:
-        global ciclo
-        ciclo = 1
-        game1()
-        game2()
-        game3()
-        sleep(random.randrange(5400,7200)) #Espera entre 1:30 e 2 horas para iniciar um novo jogo.
+        global status
+        runbot()
+        if status == "online":
+            global ciclo
+            ciclo = 1
+            game1()
+            game2()
+            game3()
+            sleep(random.randrange(5400,7200)) #Espera entre 1:30 e 2 horas para iniciar um novo jogo.
+        elif status == "offline":
+            sleep(5)
     except FindFailed:
-        sleep(random.randrange(1,600)) #Caso nao encontre os botoes, espera ate 10 min para uma proxima tentativa
-        forceReload()
+        popError("Did not work, try to restart")
+       # sleep(random.randrange(1,600)) #Caso nao encontre os botoes, espera ate 10 min para uma proxima tentativa
+       # forceReload()
